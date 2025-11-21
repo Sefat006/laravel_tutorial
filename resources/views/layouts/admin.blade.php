@@ -19,7 +19,7 @@
                     <div class="dropdown">
                       <button class="btn dropdown-toggle top_right_btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           <img src="images/avatar.png" class="img-fluid">
-                          {{ Auth::user()->name}}
+                          <!-- {{ Auth::user()->name}} -->
                       </button>
                       <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#"><i class="fas fa-user-tie"></i> My Profile</a></li>
@@ -41,7 +41,7 @@
                 <div class="col-md-2 sidebar_part">
                     <div class="user_part">
                         <img class="" src="images/avatar.png" alt="avatar"/>
-                        <h5>{{ Auth::user()->name}}</h5>
+                        <h5>{{Auth::user()->name}}</h5>
                         <p><i class="fas fa-circle"></i> Online</p>
                     </div>
                     <div class="menu">

@@ -6,10 +6,10 @@
                     <div class="card-header">
                     <div class="row">
                         <div class="col-md-8 card_title_part">
-                            <i class="fab fa-gg-circle"></i>View User Information
+                            <i class="fab fa-gg-circle"></i>View Banner Information
                         </div>  
                         <div class="col-md-4 card_button_part">
-                            <a href="{{route('user.all')}}" class="btn btn-sm btn-dark"><i class="fas fa-th"></i>All User</a>
+                            <a href="{{route('banner.all')}}" class="btn btn-sm btn-dark"><i class="fas fa-th"></i>All Banner</a>
                         </div>  
                     </div>
                     </div>
@@ -19,35 +19,35 @@
                         <div class="col-md-8">
                             <table class="table table-bordered table-striped table-hover custom_view_table">
                                 <tr>
-                                <td>Name</td>  
+                                <td>Banner Title</td>  
                                 <td>:</td>  
-                                <td>Rasel Islam</td>  
+                                <td>{{ $data->ban_title }}</td>  
                                 </tr>
                                 <tr>
-                                <td>Phone</td>  
+                                <td>Banner Subtitle</td>  
                                 <td>:</td>  
-                                <td>01757220125</td>  
+                                <td>{{ $data->ban_subtitle}}</td>  
                                 </tr>
                                 <tr>
-                                <td>Email</td>  
+                                <td>Banner Button</td>  
                                 <td>:</td>  
-                                <td>uylab.rasel@gmail.com</td>  
+                                <td>{{ $data->ban_button}}</td>  
                                 </tr>
                                 <tr>
-                                <td>Username</td>  
+                                <td>Banner URL</td>  
                                 <td>:</td>  
-                                <td>raseldevs</td>  
+                                <td>{{ $data->ban_url}}</td>  
                                 </tr>
                                 <tr>
-                                <td>Role</td>  
+                                <td>Banner Creator</td>  
                                 <td>:</td>  
-                                <td>---</td>  
+                                <td>{{ $data->creatorInfo->name}}</td>  
                                 </tr>
                                 <tr>
-                                <td>Photo</td>  
+                                <td>Banner Photo</td>  
                                 <td>:</td>  
                                 <td>
-                                    <img src="{{ asset('Contents/admin') }}/images/avatar.jpg">
+                                    
                                 </td>  
                                 </tr>
                             </table>

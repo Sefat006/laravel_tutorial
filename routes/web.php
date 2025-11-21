@@ -13,9 +13,11 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+// post -> data jabe page to database e
+// get -> for getting data from db and displaying in the site
 
 Route::get('/dashboard', function () {
-    return view('layouts.admin');
+    return view('admin.dashboard.home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -25,14 +27,17 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/dashboard/users',[UserController::class, 'index'])->name('user.all');
-Route::get('/dashboard/users/view',[UserController::class, 'view'])->name('user.view');
-Route::get('/dashboard/users/edit',[UserController::class, 'edit'])->name('user.edit');
-Route::get('/dashboard/users/add',[UserController::class, 'add'])->name('user.add');
+Route::middleware('auth')->get('/dashboard/users',[UserController::class, 'index'])->name('user.all');
+Route::middleware('auth')->get('/dashboard/users/view',[UserController::class, 'view'])->name('user.view');
+Route::middleware('auth')->get('/dashboard/users/edit',[UserController::class, 'edit'])->name('user.edit');
+Route::middleware('auth')->get('/dashboard/users/add',[UserController::class, 'add'])->name('user.add');
 
 
 // Banner page
-Route::get('/dashboard/banners', [BannerController::class, 'index'])->name('banner.all');
+Route::middleware('auth')->get('/dashboard/banners', [BannerController::class, 'index'])->name('banner.all');
+Route::middleware('auth')->get('/dashboard/banners/add', [BannerController::class, 'create'])->name('banner.add');
+Route::middleware('auth')->post('/dashboard/banners/insert', [BannerController::class, 'insert'])->name('banner.insert');
+Route::middleware('auth')->get('/dashboard/banners/view/{slug}', [BannerController::class, 'view'])->name('banner.view');
 
 
 require __DIR__.'/auth.php';
