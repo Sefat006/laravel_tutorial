@@ -34,7 +34,7 @@
                                 <td>{{ $data->ban_button}}</td>  
                                 </tr>
                                 <tr>
-                                <td>Banner URL</td>  
+                                <td>Banner URL</td>
                                 <td>:</td>  
                                 <td>{{ $data->ban_url}}</td>  
                                 </tr>
@@ -47,7 +47,11 @@
                                 <td>Banner Photo</td>  
                                 <td>:</td>  
                                 <td>
-                                    
+                                    @if($data->ban_image != '')
+                                        <img height="200" src="{{asset('uploads/banner/'.$data->ban_image)}}" alt="">
+                                    @else
+                                        <img height="200" src="{{asset('uploads/banner/default.png')}}" alt="">
+                                    @endif
                                 </td>  
                                 </tr>
                             </table>

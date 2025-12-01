@@ -37,15 +37,25 @@
                                       <td>{{ $data->ban_subtitle }}</td>
                                       <td>{{ $data->ban_button }}</td>
                                       <td>{{ $data->ban_url }}</td>
-                                      <td>{{ $data->ban_image }}</td>
+                                      <td>
+                                        @if($data->ban_image != '')
+                                        <img height="50" src="{{asset('uploads/banner/'.$data->ban_image)}}" alt="">
+                                        @else
+                                        <img height="50" src="{{asset('uploads/banner/default.png')}}" alt="">
+                                        @endif
+                                      </td>
                                       <td>---</td>
                                       <td>
                                           <div class="btn-group btn_group_manage" role="group">
                                             <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
                                             <ul class="dropdown-menu">
                                               <li><a class="dropdown-item" href="{{route('banner.view',$data->ban_slug)}}">View</a></li>
-                                              <li><a class="dropdown-item" href="">Edit</a></li>
-                                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                                              <li><a class="dropdown-item" href="{{route('banner.edit',$data->ban_slug)}}">Edit</a></li>
+                                              <li>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                                                  Delete
+                                                </button>
+                                              </li>
                                             </ul>
                                           </div>
                                       </td>
@@ -64,5 +74,26 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                 @endsection
 

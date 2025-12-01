@@ -37,7 +37,11 @@ Route::middleware('auth')->get('/dashboard/users/add',[UserController::class, 'a
 Route::middleware('auth')->get('/dashboard/banners', [BannerController::class, 'index'])->name('banner.all');
 Route::middleware('auth')->get('/dashboard/banners/add', [BannerController::class, 'create'])->name('banner.add');
 Route::middleware('auth')->post('/dashboard/banners/insert', [BannerController::class, 'insert'])->name('banner.insert');
+Route::middleware('auth')->post('/dashboard/banners/update/{slugs}', [BannerController::class, 'update'])->name('banner.update');
+
 Route::middleware('auth')->get('/dashboard/banners/view/{slug}', [BannerController::class, 'view'])->name('banner.view');
+Route::middleware('auth')->get('/dashboard/banners/edit/{slug}', [BannerController::class, 'edit'])->name('banner.edit');
+Route::middleware('auth')->get('/dashboard/banners/softDelete/', [BannerController::class, 'softDelete'])->name('banner.softDelete');
 
 
 require __DIR__.'/auth.php';
